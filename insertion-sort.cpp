@@ -1,16 +1,17 @@
 #include <iostream>
 
-void shift(int vector[], int position1, int position2) {
-  int aux = vector[position1];
-  vector[position1] = vector[position2];
-  vector[position2] = aux;
+void printArray(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
 }
 
 void insertionSort(int vector[], int lenght) {
   for (int i = 1; i < lenght; i++) {
     int temp = i;
     while (vector[temp] < vector[temp - 1] && temp > 0) {
-      shift(vector, temp, temp - 1);     
+      std::swap(vector[temp], vector[temp - 1]);     
       temp--;
     }
   }
@@ -19,7 +20,7 @@ void insertionSort(int vector[], int lenght) {
 int main(void) {
     int n = 5;
     
-     int v[n];
+    int v[n];
 
     v[0] = 20;
     v[1] = 5;
@@ -27,16 +28,10 @@ int main(void) {
     v[3] = 2;
     v[4] = 1;
 
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
-    }
-    printf("\n");
+    printArray(n , v);
 
     insertionSort(v, n);
 
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
-    }
-    printf("\n");
+    printArray(n , v);
     return 0;
 }

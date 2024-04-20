@@ -11,19 +11,17 @@ int minimum(int vector[], int startPosition, int endPosition) {
     return min;
 }
 
-//função de trocar dois elementos, mas com as varáveis no contexto do algoritmo
-void shift(int vector[], int numberPosition, int minimumPosition) {
-    if(vector[minimumPosition] != vector[numberPosition]) {
-        int aux = vector[numberPosition];
-        vector[numberPosition] = vector[minimumPosition];
-        vector[minimumPosition] = aux;
+void printArray(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
     }
+    std::cout << std::endl;
 }
 
 void selectionSort(int vector[], int size) {
     for (int i = 0; i < size-1; i++) {
         int min = minimum(vector, i, size - 1);
-        shift(vector, i, min);
+        std::swap(vector[i], vector[min]);
     }
 }
 
@@ -37,17 +35,11 @@ int main() {
     v[3] = 7;
     v[4] = 1;
 
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
-    }
-    printf("\n");
+    printArray(n, v);
 
     selectionSort(v, n);
 
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
-    }
-    printf("\n");
+    printArray(n, v);
 
     return 0;
 }
