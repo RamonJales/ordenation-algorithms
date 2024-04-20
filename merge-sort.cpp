@@ -24,7 +24,7 @@ void merge(int list[], int init, int middle, int end) {
     rightList[i] = list[middle + i + 1];
   }
 
-  int l, r = 0;
+  int l = 0, r = 0;
 
   for(int k = init; k <= end; k++) {
     if (l >= leftLenght) {
